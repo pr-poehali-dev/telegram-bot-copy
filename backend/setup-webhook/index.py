@@ -32,11 +32,11 @@ def handler(event: dict, context) -> dict:
         
         webhook_url = 'https://functions.poehali.dev/b82938a8-2ba3-4b26-bb32-083ef278deee'
         
+        telegram_api_url = f'https://api.telegram.org/bot{bot_token}/setWebhook'
+        response = requests.post(telegram_api_url, json={'url': webhook_url})
+        result = response.json()
+        
         if method == 'POST':
-            telegram_api_url = f'https://api.telegram.org/bot{bot_token}/setWebhook'
-            response = requests.post(telegram_api_url, json={'url': webhook_url})
-            result = response.json()
-            
             return {
                 'statusCode': 200,
                 'headers': {'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*'},
