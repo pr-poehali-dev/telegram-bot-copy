@@ -1,0 +1,14 @@
+{
+  "tests": [
+    {
+      "name": "Test GET webhook info",
+      "method": "GET",
+      "path": "/",
+      "expectedStatus": 200,
+      "expectedBody": {
+        "webhook_info": {}
+      },
+      "bodyMatcher": "partial"
+    }
+  ]
+}
